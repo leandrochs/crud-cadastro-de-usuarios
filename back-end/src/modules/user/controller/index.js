@@ -23,6 +23,8 @@ async function findById(req, res) {
 
 async function findByParam(req, res) {
   const { search } = req.body;
+  const PHONE_LENGTH = 11;
+  const CPF_LENGTH = 11;
 
   if (!search) {
     return res.status(400).json({ message: 'Campo vazio.' });
@@ -34,11 +36,11 @@ async function findByParam(req, res) {
     user = await Service.findByEmail(search);
   }
 
-  if (!user.length) {
+  if (!user.length && search?.length == PHONE_LENGTH) {
     user = await Service.findByPhone(search);
   }
 
-  if (!user.length) {
+  if (!user.length && search?.length === CPF_LENGTH) {
     user = await Service.findByCpf(search);
   }
 
@@ -46,7 +48,7 @@ async function findByParam(req, res) {
     user = await Service.findById(search);
   }
 
-  if (!user.length) {
+  if (!user) {
     return res.status(400).json({ message: 'Nenhum resultado.' });
   }
 

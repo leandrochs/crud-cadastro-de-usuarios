@@ -8,7 +8,7 @@ async function findAll() {
     console.log(error.message);
     return error;
   }
-};
+}
 
 async function findById(id) {
   try {
@@ -18,8 +18,7 @@ async function findById(id) {
     console.log(error.message);
     return error;
   }
-};
-
+}
 
 async function findByName(search) {
   try {
@@ -29,7 +28,7 @@ async function findByName(search) {
     console.log(error.message);
     return error;
   }
-};
+}
 
 async function findByEmail(search) {
   try {
@@ -39,9 +38,7 @@ async function findByEmail(search) {
     console.log(error.message);
     return error;
   }
-};
-
-
+}
 
 async function findByPhone(search) {
   try {
@@ -51,8 +48,7 @@ async function findByPhone(search) {
     console.log(error.message);
     return error;
   }
-};
-
+}
 
 async function findByCpf(search) {
   try {
@@ -62,7 +58,7 @@ async function findByCpf(search) {
     console.log(error.message);
     return error;
   }
-};
+}
 
 async function create(fullName, email) {
   try {
@@ -72,7 +68,7 @@ async function create(fullName, email) {
     console.log(error.message);
     return error;
   }
-};
+}
 
 module.exports = {
   findAll,
