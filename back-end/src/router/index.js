@@ -1,2 +1,2 @@
 module.exports.login = require('./loginRoute');
-module.exports.client = require('./userRoute');
+module.exports.user = require('./userRoute');

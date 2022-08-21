@@ -1,49 +1,49 @@
 const Service = require('../service');
 
 async function findAll(req, res) {
-  const client = await Service.findAll();
+  const user = await Service.findAll();
 
-  if (!client) {
+  if (!user) {
     return res.status(400).json({ message: 'Nenhum registro encontrado.' });
   }
 
-  return res.status(200).json(client);
+  return res.status(200).json(user);
 }
 
 async function findById(req, res) {
   const { id } = req.params;
-  const client = await Service.findById(id);
+  const user = await Service.findById(id);
 
-  if (!client) {
+  if (!user) {
     return res.status(400).json({ message: 'Id inválido.' });
   }
 
-  return res.status(200).json(client);
+  return res.status(200).json(user);
 }
 
 async function findByParam(req, res) {
 
   req.params
   const { id } = req.params;
-  const client = await Service.findByParam(id);
+  const user = await Service.findByParam(id);
 
-  if (!client) {
+  if (!user) {
     return res.status(400).json({ message: 'Id inválido.' });
   }
 
-  return res.status(200).json(client);
+  return res.status(200).json(user);
 }
 
 
 async function create(req, res, next) {
   const { fullName, email } = req.body;
-  const client = await Service.create(fullName, email);
+  const user = await Service.create(fullName, email);
 
-  if (!client) {
+  if (!user) {
     return res.status(400).json({ message: 'Cadastro não realizado.' });
   }
 
-  return res.status(201).json(client);
+  return res.status(201).json(user);
 }
 
 module.exports = {

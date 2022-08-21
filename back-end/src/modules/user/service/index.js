@@ -2,8 +2,8 @@ const Model = require('../model');
 
 async function findAll() {
   try {
-    const client = await Model.findAll();
-    return client;
+    const users = await Model.findAll();
+    return users;
   } catch (error) {
     console.log(error.message);
     return error;
@@ -12,8 +12,8 @@ async function findAll() {
 
 async function findById(id) {
   try {
-    const client = await Model.findById(id);
-    return client;
+    const user = await Model.findById(id);
+    return user;
   } catch (error) {
     console.log(error.message);
     return error;
@@ -22,8 +22,8 @@ async function findById(id) {
 
 async function create(fullName, email) {
   try {
-    const client = await Model.create(fullName, email);
-    return client;
+    const user = await Model.create(fullName, email);
+    return user;
   } catch (error) {
     console.log(error.message);
     return error;
