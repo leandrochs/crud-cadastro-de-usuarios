@@ -10,9 +10,9 @@ async function findAll() {
   }
 };
 
-async function findById(userId) {
+async function findById(id) {
   try {
-    const client = await Model.findById(userId);
+    const client = await Model.findById(id);
     return client;
   } catch (error) {
     console.log(error.message);

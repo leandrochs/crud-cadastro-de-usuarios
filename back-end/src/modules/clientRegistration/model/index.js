@@ -6,8 +6,8 @@ async function findAll() {
   return users;
 }
 
-async function findById(userId) {
-  const user = await Client.findByPk(userId);
+async function findById(id) {
+  const user = await Client.findByPk(id);
 
   return user;
 }

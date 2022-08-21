@@ -7,7 +7,7 @@ const Controller = require('../modules/clientRegistration/controller');
 const clientRoute = express.Router();
 
 clientRoute.get('/',auth, Controller.findAll)
-clientRoute.post('/:id', Controller.findById)
+clientRoute.get('/:id', Controller.findById)
 clientRoute.post('/', Controller.create)
 
 module.exports = clientRoute;
