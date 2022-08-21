@@ -20,6 +20,50 @@ async function findById(id) {
   }
 };
 
+
+async function findByName(search) {
+  try {
+    const user = await Model.findByName(search);
+    return user;
+  } catch (error) {
+    console.log(error.message);
+    return error;
+  }
+};
+
+async function findByEmail(search) {
+  try {
+    const user = await Model.findByEmail(search);
+    return user;
+  } catch (error) {
+    console.log(error.message);
+    return error;
+  }
+};
+
+
+
+async function findByPhone(search) {
+  try {
+    const user = await Model.findByPhone(search);
+    return user;
+  } catch (error) {
+    console.log(error.message);
+    return error;
+  }
+};
+
+
+async function findByCpf(search) {
+  try {
+    const user = await Model.findByCpf(search);
+    return user;
+  } catch (error) {
+    console.log(error.message);
+    return error;
+  }
+};
+
 async function create(fullName, email) {
   try {
     const user = await Model.create(fullName, email);
@@ -33,5 +77,9 @@ async function create(fullName, email) {
 module.exports = {
   findAll,
   findById,
+  findByName,
+  findByEmail,
+  findByPhone,
+  findByCpf,
   create,
 };

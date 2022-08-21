@@ -22,18 +22,36 @@ async function findById(req, res) {
 }
 
 async function findByParam(req, res) {
+  const { search } = req.body;
 
-  req.params
-  const { id } = req.params;
-  const user = await Service.findByParam(id);
+  if (!search) {
+    return res.status(400).json({ message: 'Campo vazio.' });
+  }
 
-  if (!user) {
-    return res.status(400).json({ message: 'Id inválido.' });
+  let user = await Service.findByName(search);
+
+  if (!user.length) {
+    user = await Service.findByEmail(search);
+  }
+
+  if (!user.length) {
+    user = await Service.findByPhone(search);
+  }
+
+  if (!user.length) {
+    user = await Service.findByCpf(search);
+  }
+
+  if (!user.length) {
+    user = await Service.findById(search);
+  }
+
+  if (!user.length) {
+    return res.status(400).json({ message: 'Nenhum resultado.' });
   }
 
   return res.status(200).json(user);
 }
-
 
 async function create(req, res, next) {
   const { fullName, email } = req.body;
@@ -50,4 +68,5 @@ module.exports = {
   findAll,
   findById,
   create,
+  findByParam,
 };
