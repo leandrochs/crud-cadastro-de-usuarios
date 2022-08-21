@@ -1,6 +1,5 @@
-const { sign } = require('jsonwebtoken');
 const Service = require('../service');
-const jwtConfig = require('../../../config/JwtConfig');
+const { jwtTokenGenerator } = require('../../../utils/jwtTokenGenerator');
 
 const findOne = async (req, res) => {
   const { email, password } = req.body;
@@ -11,11 +10,7 @@ const findOne = async (req, res) => {
     return res.status(400).json({ message: 'Senha ou email inválidos.' });
   }
 
-  const token = sign(
-    { id: user.dataValues.id },
-    jwtConfig.secret,
-    jwtConfig.configs,
-  );
+  const token = jwtTokenGenerator(user);
 
   return res.status(200).json({ token });
 };
