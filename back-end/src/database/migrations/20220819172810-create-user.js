@@ -27,20 +27,24 @@ module.exports = {
       },
       phone: {
         type: Sequelize.BIGINT,
-        allowNull: false,
+        allowNull: true,
+        defaultValue: 11000000000,
       },
       birthDate: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING,
+        defaultValue: '00/00/0000',
         field: 'birth_date',
       },
       role: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING,
+        defaultValue: 'user',
       },
       status: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING,
+        defaultValue: 'active',
       },
       createdAt: {
         allowNull: false,

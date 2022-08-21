@@ -7,7 +7,10 @@ const User = (sequelize, DataTypes) => {
       cpf: DataTypes.BIGINT,
       password: DataTypes.STRING,
       phone: DataTypes.BIGINT,
-      birthDate: DataTypes.STRING,
+      birthDate: {
+        type: DataTypes.STRING,
+        defaultValue: '00/00/0000',
+      },
       role: DataTypes.STRING,
       status: DataTypes.STRING,
     },

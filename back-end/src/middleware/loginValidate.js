@@ -14,7 +14,7 @@ const loginSchema = Joi.object({
     }),
 });
 
-const validateLogin = async (req, res, next) => {
+const loginValidate = async (req, res, next) => {
   const { error } = loginSchema.validate(req.body);
 
   if (error) {
@@ -25,4 +25,4 @@ const validateLogin = async (req, res, next) => {
   next();
 };
 
-module.exports = validateLogin;
+module.exports = loginValidate;
