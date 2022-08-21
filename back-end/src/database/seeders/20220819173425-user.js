@@ -6,14 +6,14 @@ module.exports = {
       'Users',
       [
         {
-          full_name: 'Nome do usuário 01',
-          email: 'user1@test.com',
+          email: 'admin@email.com',
+          password: '123456', // senha: 123456
           created_at: Sequelize.literal('CURRENT_TIMESTAMP'),
           updated_at: Sequelize.literal('CURRENT_TIMESTAMP'),
         },
         {
-          full_name: 'Nome do usuário 02',
-          email: 'user2@test.com',
+          email: 'teste@email.com',
+          password: 'teste123', // senha: teste123
           created_at: Sequelize.literal('CURRENT_TIMESTAMP'),
           updated_at: Sequelize.literal('CURRENT_TIMESTAMP'),
         },
