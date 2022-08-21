@@ -25,7 +25,8 @@ async function findByCpf(cpf) {
 }
 
 async function create(payload) {
-  const { fullName, email, cpf, password, phone, birthDate, role, status } = payload;
+  const { fullName, email, cpf, password, phone, birthDate, role, status } =
+    payload;
   const user = await User.create({
     fullName,
     email,
@@ -39,11 +40,29 @@ async function create(payload) {
   return user;
 }
 
+async function update(payload) {
+  const { id, fullName, email, cpf, password, phone, birthDate, role, status } =
+    payload;
+  let user = await User.update(
+    {
+      fullName, email, cpf, password, phone, birthDate, role, status,
+    },
+    { where: { id } },
+  );
+
+  user = await User.findOne({
+    where: { id },
+    attributes: { exclude: ['password'] } });
+
+  return user;
+}
+
 module.exports = {
   findAll,
   findById,
   findByEmail,
   findByCpf,
   create,
+  update,
   // destroy,
 };

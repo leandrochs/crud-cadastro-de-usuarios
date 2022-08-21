@@ -31,8 +31,19 @@ async function create(req, res) {
   return res.status(201).json(user);
 }
 
+async function update(req, res) {
+  const user = await Service.update(req.body);
+
+  if (!user) {
+    return res.status(400).json({ message: 'Edição não realizada.' });
+  }
+
+  return res.status(200).json(user);
+}
+
 module.exports = {
   findAll,
   findById,
   create,
+  update,
 };

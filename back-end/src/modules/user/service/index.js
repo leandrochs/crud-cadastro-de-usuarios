@@ -50,10 +50,21 @@ async function create(payload) {
   }
 }
 
+async function update(payload) {
+  try {
+    const user = await Model.update(payload);
+    return user;
+  } catch (error) {
+    console.log(error.message);
+    return error;
+  }
+}
+
 module.exports = {
   findAll,
   findById,
   findByEmail,
   findByCpf,
   create,
+  update,
 };

@@ -1,6 +1,11 @@
 const Joi = require('joi');
 
 const loginSchema = Joi.object({
+  id: Joi.number()
+  .messages({
+    'number.number': 'O id deve ser um número.',
+  }),
+
   fullName: Joi.string().required()
     .messages({
       'any.required': 'O campo nome está vazio.',
@@ -47,7 +52,7 @@ const loginSchema = Joi.object({
   }),
 });
 
-const userValidate = async (req, res, next) => {
+const dataValidate = async (req, res, next) => {
   const { error } = loginSchema.validate(req.body);
 
   if (error) {
@@ -58,4 +63,4 @@ const userValidate = async (req, res, next) => {
   next();
 };
 
-module.exports = userValidate;
+module.exports = dataValidate;
