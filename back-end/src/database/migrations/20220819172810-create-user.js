@@ -8,13 +8,39 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      fullName: {
+        type: Sequelize.STRING,
+        field: 'full_name',
+        allowNull: false,
+      },
       email: {
         type: Sequelize.STRING,
+        allowNull: false,
+      },
+      cpf: {
+        type: Sequelize.BIGINT,
         allowNull: false,
       },
       password: {
         type: Sequelize.STRING,
         allowNull: false,
+      },
+      phone: {
+        type: Sequelize.BIGINT,
+        allowNull: false,
+      },
+      birthDate: {
+        allowNull: false,
+        type: Sequelize.STRING,
+        field: 'birth_date',
+      },
+      role: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
+      status: {
+        allowNull: false,
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,

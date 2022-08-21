@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/login', Route.login);
-app.use('/client', Route.client);
+app.use('/user', Route.user);
 app.use(middlewareErro);
 
 app.get('/', (req, res) => res.status(200).json({ message: 'Olá Mundo!' }));

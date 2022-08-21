@@ -21,6 +21,20 @@ async function findById(req, res) {
   return res.status(200).json(client);
 }
 
+async function findByParam(req, res) {
+
+  req.params
+  const { id } = req.params;
+  const client = await Service.findByParam(id);
+
+  if (!client) {
+    return res.status(400).json({ message: 'Id inválido.' });
+  }
+
+  return res.status(200).json(client);
+}
+
+
 async function create(req, res, next) {
   const { fullName, email } = req.body;
   const client = await Service.create(fullName, email);
