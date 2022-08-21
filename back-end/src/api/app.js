@@ -10,8 +10,7 @@ app.use(cors());
 
 app.use('/login', Route.login);
 app.use('/user', Route.user);
+app.use('/search', Route.search);
 app.use(middlewareErro);
-
-app.get('/', (req, res) => res.status(200).json({ message: 'Olá Mundo!' }));
 
 module.exports = app;
