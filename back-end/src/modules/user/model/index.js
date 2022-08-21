@@ -1,4 +1,3 @@
-const { Op } = require('sequelize');
 const { User } = require('../../../database/models');
 
 async function findAll() {
@@ -19,9 +18,14 @@ async function findByEmail(email) {
   return user;
 }
 
+async function findByCpf(cpf) {
+  const user = await User.findOne({ where: { cpf } });
+
+  return user;
+}
+
 async function create(payload) {
-  const { fullName, email, cpf, password, phone, birthDate, role, status } =
-    payload;
+  const { fullName, email, cpf, password, phone, birthDate, role, status } = payload;
   const user = await User.create({
     fullName,
     email,
@@ -39,6 +43,7 @@ module.exports = {
   findAll,
   findById,
   findByEmail,
+  findByCpf,
   create,
   // destroy,
 };

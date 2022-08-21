@@ -20,10 +20,19 @@ async function findById(id) {
   }
 }
 
-
 async function findByEmail(email) {
   try {
     const user = await Model.findByEmail(email);
+    return user;
+  } catch (error) {
+    console.log(error.message);
+    return error;
+  }
+}
+
+async function findByCpf(cpf) {
+  try {
+    const user = await Model.findByCpf(cpf);
     return user;
   } catch (error) {
     console.log(error.message);
@@ -45,5 +54,6 @@ module.exports = {
   findAll,
   findById,
   findByEmail,
+  findByCpf,
   create,
 };

@@ -22,17 +22,6 @@ async function findById(req, res) {
 }
 
 async function create(req, res) {
-  const { email } = req.body;
-  const hasUser = await Service.findByEmail(email);
-  if (hasUser) {
-    return res.status(400).json({ message: 'Email já cadastrado.' });
-  }
-
-  const { role } = await Service.findById(req.userId);
-  if (role !== 'admin') {
-    return res.status(400).json({ message: 'Nível de acesso negado.' });
-  }
-
   const user = await Service.create(req.body);
 
   if (!user) {
