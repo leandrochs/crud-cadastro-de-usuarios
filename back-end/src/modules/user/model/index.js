@@ -13,59 +13,32 @@ async function findById(id) {
   return user;
 }
 
-async function findByName(search) {
-  const user = await User.findAll({
-    where: {
-      fullName: { [Op.like]: `%${search}%` },
-    },
-  });
+async function findByEmail(email) {
+  const user = await User.findOne({ where: { email } });
 
   return user;
 }
 
-async function findByEmail(search) {
-  const user = await User.findAll({
-    where: {
-      email: { [Op.like]: `%${search}%` },
-    },
+async function create(payload) {
+  const { fullName, email, cpf, password, phone, birthDate, role, status } =
+    payload;
+  const user = await User.create({
+    fullName,
+    email,
+    cpf,
+    password,
+    phone,
+    birthDate,
+    role,
+    status,
   });
-
-  return user;
-}
-
-async function findByPhone(search) {
-  const user = await User.findAll({
-    where: {
-      phone: { [Op.like]: `%${search}%` },
-    },
-  });
-
-  return user;
-}
-
-async function findByCpf(search) {
-  const user = await User.findAll({
-    where: {
-      cpf: { [Op.like]: `%${search}%` },
-    },
-  });
-
-  return user;
-}
-
-async function create(fullName, email) {
-  const user = await User.create({ fullName, email });
   return user;
 }
 
 module.exports = {
   findAll,
   findById,
-  create,
-  findByName,
   findByEmail,
-  findByPhone,
-  findByCpf,
-  // create,
+  create,
   // destroy,
 };

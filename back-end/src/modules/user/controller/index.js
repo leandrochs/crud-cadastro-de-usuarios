@@ -21,43 +21,19 @@ async function findById(req, res) {
   return res.status(200).json(user);
 }
 
-async function findByParam(req, res) {
-  const { search } = req.body;
-  const PHONE_LENGTH = 11;
-  const CPF_LENGTH = 11;
-
-  if (!search) {
-    return res.status(400).json({ message: 'Campo vazio.' });
+async function create(req, res) {
+  const { email } = req.body;
+  const hasUser = await Service.findByEmail(email);
+  if (hasUser) {
+    return res.status(400).json({ message: 'Email já cadastrado.' });
   }
 
-  let user = await Service.findByName(search);
-
-  if (!user.length) {
-    user = await Service.findByEmail(search);
+  const { role } = await Service.findById(req.userId);
+  if (role !== 'admin') {
+    return res.status(400).json({ message: 'Nível de acesso negado.' });
   }
 
-  if (!user.length && search?.length == PHONE_LENGTH) {
-    user = await Service.findByPhone(search);
-  }
-
-  if (!user.length && search?.length === CPF_LENGTH) {
-    user = await Service.findByCpf(search);
-  }
-
-  if (!user.length) {
-    user = await Service.findById(search);
-  }
-
-  if (!user) {
-    return res.status(400).json({ message: 'Nenhum resultado.' });
-  }
-
-  return res.status(200).json(user);
-}
-
-async function create(req, res, next) {
-  const { fullName, email } = req.body;
-  const user = await Service.create(fullName, email);
+  const user = await Service.create(req.body);
 
   if (!user) {
     return res.status(400).json({ message: 'Cadastro não realizado.' });
@@ -70,5 +46,4 @@ module.exports = {
   findAll,
   findById,
   create,
-  findByParam,
 };

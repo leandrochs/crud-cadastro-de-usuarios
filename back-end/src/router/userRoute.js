@@ -5,8 +5,8 @@ const Controller = require('../modules/user/controller');
 
 const userRoute = express.Router();
 
-userRoute.get('/',auth , Controller.findAll)
-userRoute.get('/:id',auth, Controller.findById)
-userRoute.post('/search',auth, Controller.findByParam)
+userRoute.get('/', auth, Controller.findAll);
+userRoute.get('/:id', auth, Controller.findById);
+userRoute.post('/', auth, Controller.create);
 
 module.exports = userRoute;
