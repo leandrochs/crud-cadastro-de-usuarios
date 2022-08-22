@@ -12,7 +12,6 @@ function Search() {
   async function onClick(e) {
     e.preventDefault();
     const res = await searchApi(search);
-
     if (res) {
       setUsers(res);
     }

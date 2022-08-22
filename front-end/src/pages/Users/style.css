@@ -6,3 +6,18 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+@media (max-width: 542px) {
+  .users-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .users-components {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+}

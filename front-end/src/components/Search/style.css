@@ -9,7 +9,6 @@
 
 .search-container {
   height: 2.2rem;
-
 }
 
 .img-container {
@@ -20,7 +19,6 @@
   align-items: center;
   justify-content: center;
   border-radius: 5px 0 0 5px;
-  
 }
 
 .search-img {
@@ -71,4 +69,14 @@
 .refresh-img {
   height: 1rem;
   width: 1rem;
+}
+
+@media (max-width: 542px) {
+  .search-input {
+    background-color: rgb(233, 225, 225);
+    border-radius: 0 5px 5px 0;
+    border: 1px solid rgb(219, 213, 213);
+    border-left: none;
+    width: 60vw;
+  }
 }

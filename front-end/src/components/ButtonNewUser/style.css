@@ -17,7 +17,6 @@
   align-items: center;
   height: 2.2rem;
   width: 100px;
-
 }
 
 .btn-new:hover {
@@ -32,4 +31,12 @@
 .plus {
   font-size: 1.8rem;
   margin-right: 0.5rem;
+}
+
+@media (max-width: 542px) {
+  .btn-new-container {
+    width: 100px;
+    margin-right: 1rem;
+    margin-bottom: 2rem;
+  }
 }
