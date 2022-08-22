@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import loginApi from '../../service/loginApi';
 import './style.css';
 
@@ -7,10 +8,13 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const history = useHistory();
+
   async function onClick(e) {
     e.preventDefault();
-    const res = await loginApi(email, password);
-    console.log(res);
+    const token = await loginApi(email, password);
+    localStorage.setItem('token', JSON.stringify(token));
+    if (token) history.push('./user');
   }
 
   return (
