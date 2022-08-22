@@ -8,7 +8,12 @@ async function loginApi(email, password) {
   const result = await api
     .post('/login', { email, password })
     .then((res) => res.data)
-    .catch((error) => console.log(error));
+    .catch((err) => {
+      const message = typeof err.response !== 'undefined'
+        ? err.response.data.message
+        : err.message;
+      return { error: message };
+    });
 
   return result;
 }
