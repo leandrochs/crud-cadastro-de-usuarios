@@ -1,22 +1,17 @@
+import { useState } from 'react';
 import mGlass from '../../assets/magnifying-glass.svg';
 import refresh from '../../assets/refresh.png';
+import searchApi from '../../service/searchApi';
 import './style.css';
 
 function Search() {
+  const [search, setSearch] = useState('');
 
-    async function onClick(e) {
-      e.preventDefault();
-      const res = await loginApi(email, password);
-  
-      if (res.token) {
-        history.push('./user');
-        localStorage.setItem('token', JSON.stringify(res));
-      }
-  
-      if (res.error) {
-        setErrorMessage(res.error);
-      }
-    
+  async function onClick(e) {
+    e.preventDefault();
+    const res = await searchApi(search);
+
+    console.log(res);
   }
 
   return (
@@ -31,10 +26,10 @@ function Search() {
       <input
         className="search-input"
         type="text"
-        onChange={ ({ target }) => setEmail(target.value) }
+        onChange={ ({ target }) => setSearch(target.value) }
         placeholder="Pesquisar"
       />
-      <button className="btn-refresh" type="button" onClick={onClick} >
+      <button className="btn-refresh" type="button" onClick={ onClick }>
         <img className="refresh-img" src={ refresh } alt="Buscar" />
       </button>
     </div>
