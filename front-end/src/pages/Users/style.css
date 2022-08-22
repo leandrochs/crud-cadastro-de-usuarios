@@ -1,0 +1,8 @@
+.users-container {
+  margin: 0 2vw;
+}
+
+.users-components {
+  display: flex;
+  flex-wrap: wrap;
+}

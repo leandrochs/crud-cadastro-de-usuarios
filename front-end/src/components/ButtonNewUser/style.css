@@ -1,0 +1,35 @@
+.btn-new-container {
+  width: 100px;
+  margin-right: 1rem;
+}
+
+.btn-new {
+  padding: 0.1rem 0.7rem;
+  box-shadow: 2px 10px 54px -5px rgba(124, 124, 124, 0.493);
+  border: none;
+  background-color: #2442ed;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: white;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  height: 2.2rem;
+  width: 100px;
+
+}
+
+.btn-new:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.btn-new:active {
+  background-color: #4058e0;
+}
+
+.plus {
+  font-size: 1.8rem;
+  margin-right: 0.5rem;
+}

@@ -3,14 +3,14 @@ import React, { useMemo, useState } from 'react';
 import Context from './Context';
 
 export function Provider({ children }) {
-  const [user, setUser] = useState([]);
+  const [users, setUsers] = useState([]);
 
   const context = useMemo(
     () => ({
-      user,
-      setUser,
+      users,
+      setUsers,
     }),
-    [user],
+    [users],
   );
 
   return <Context.Provider value={ context }>{children}</Context.Provider>;
