@@ -15,7 +15,7 @@ function Search() {
   }
 
   return (
-    <div className="search-container">
+    <form className="search-container">
       <button className="btn-new" type="button">
         <span className="plus">+</span>
         Novo
@@ -29,10 +29,10 @@ function Search() {
         onChange={ ({ target }) => setSearch(target.value) }
         placeholder="Pesquisar"
       />
-      <button className="btn-refresh" type="button" onClick={ onClick }>
+      <button className="btn-refresh" type="submit" onClick={ onClick }>
         <img className="refresh-img" src={ refresh } alt="Buscar" />
       </button>
-    </div>
+    </form>
   );
 }
 
