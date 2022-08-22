@@ -12,5 +12,6 @@ userRoute.get('/', auth, Controller.findAll);
 userRoute.get('/:id', auth, Controller.findById);
 userRoute.post('/', auth, isAdmin, hasUser, dataValidate, Controller.create);
 userRoute.put('/', auth, isAdmin, dataValidate, Controller.update);
+userRoute.delete('/', auth, isAdmin, Controller.destroy);
 
 module.exports = userRoute;

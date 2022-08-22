@@ -25,24 +25,17 @@ async function findByCpf(cpf) {
 }
 
 async function create(payload) {
-  const { fullName, email, cpf, password, phone, birthDate, role, status } =
-    payload;
-  const user = await User.create({
-    fullName,
-    email,
-    cpf,
-    password,
-    phone,
-    birthDate,
-    role,
-    status,
-  });
+  const { fullName, email, cpf, password, phone, birthDate, role, status } = payload;
+  const user = await User.create(
+    {
+      fullName, email, cpf, password, phone, birthDate, role, status,
+    },
+  );
   return user;
 }
 
 async function update(payload) {
-  const { id, fullName, email, cpf, password, phone, birthDate, role, status } =
-    payload;
+  const { id, fullName, email, cpf, password, phone, birthDate, role, status } = payload;
   let user = await User.update(
     {
       fullName, email, cpf, password, phone, birthDate, role, status,
@@ -57,6 +50,13 @@ async function update(payload) {
   return user;
 }
 
+async function destroy(id) {
+  const user = await User.destroy(
+    { where: { id } },
+  );
+  return user;
+}
+
 module.exports = {
   findAll,
   findById,
@@ -64,5 +64,5 @@ module.exports = {
   findByCpf,
   create,
   update,
-  // destroy,
+  destroy,
 };

@@ -1,7 +1,6 @@
 const { Op } = require('sequelize');
 const { User } = require('../../../database/models');
 
-
 async function searchById(id) {
   const user = await User.findByPk(id);
 

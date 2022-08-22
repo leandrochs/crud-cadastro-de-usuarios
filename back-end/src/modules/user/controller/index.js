@@ -41,9 +41,22 @@ async function update(req, res) {
   return res.status(200).json(user);
 }
 
+async function destroy(req, res) {
+  const { id } = req.body;
+  console.log(id);
+  const user = await Service.destroy(id);
+
+  if (!user) {
+    return res.status(400).json({ message: 'Usuário não deletado.' });
+  }
+
+  return res.status(200).json({ message: 'Usuário deletado com sucesso.' });
+}
+
 module.exports = {
   findAll,
   findById,
   create,
   update,
+  destroy,
 };

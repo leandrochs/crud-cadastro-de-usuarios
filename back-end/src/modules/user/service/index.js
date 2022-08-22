@@ -60,6 +60,16 @@ async function update(payload) {
   }
 }
 
+async function destroy(id) {
+  try {
+    const user = await Model.destroy(id);
+    return user;
+  } catch (error) {
+    console.log(error.message);
+    return error;
+  }
+}
+
 module.exports = {
   findAll,
   findById,
@@ -67,4 +77,5 @@ module.exports = {
   findByCpf,
   create,
   update,
+  destroy,
 };
