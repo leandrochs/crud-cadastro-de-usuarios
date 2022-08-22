@@ -5,7 +5,7 @@
 .table {
   border-collapse: collapse;
   width: 100%;
-  margin-top: 2vh;
+  margin-top: 5vh;
   color: gray;
 }
 
@@ -25,4 +25,21 @@ th {
 .btn-actions {
   border: none;
   background-color: transparent;
+  cursor: pointer;
+}
+
+.popover-container {
+  background-color: rgb(230, 230, 238);
+  border: solid 1px rgba(180, 177, 177, 0.459);
+  padding: 3px 18px;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+}
+
+.popover-container button {
+  padding: 3px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
