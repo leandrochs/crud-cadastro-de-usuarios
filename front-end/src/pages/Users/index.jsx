@@ -9,7 +9,7 @@ function Users() {
       <h1>Usuários cadastrados</h1>
       <div className="users-components">
         <ButtonNewUser />
-        <div>
+        <div className="users-table">
           <Search />
           <Table />
         </div>

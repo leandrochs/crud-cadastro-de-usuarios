@@ -7,6 +7,10 @@
   flex-wrap: wrap;
 }
 
+.users-table {
+  width: 85%;
+}
+
 @media (max-width: 542px) {
   .users-container {
     display: flex;

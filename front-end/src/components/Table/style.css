@@ -1,0 +1,28 @@
+.table-container {
+  width: 100%;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 2vh;
+  color: gray;
+}
+
+.table-thead {
+  border-bottom: solid 1px gray;
+}
+
+tr {
+  line-height: 3rem;
+}
+
+th {
+  line-height: 1.5rem;
+  text-align: start;
+}
+
+.btn-actions {
+  border: none;
+  background-color: transparent;
+}
